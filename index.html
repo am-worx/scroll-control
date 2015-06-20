@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Jooble test</title>
+		<meta charset="utf8">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/reset.css">
+		<style type="text/css">
+			body, html {
+				height: 100%;
+				min-width: 100%;
+				-moz-scroll-behavior: smooth;
+				-webkit-scroll-behavior: smooth;
+				scroll-behavior: smooth;
+			}
+			body {
+				font-family: Arial, sans-serif;
+				background: url(img/motorcycle.jpg) no-repeat center center fixed;
+				background-size: cover;
+				height: 5000px;
+			}
+			h1 {
+				font-size: 50px;
+				position: relative;
+				left: -100%;
+			}
+			.big {
+				position: relative;
+				left: 100%;
+			}
+			.blurred {
+				display: block;
+				position: fixed;
+				box-sizing: border-box;
+				top: 30%;
+				left: 50%;
+				width: 80%;
+				margin-left: -40%;
+				padding: 80px;
+				padding: 20px;
+				background: url(img/motorcycle-blurred.jpg) no-repeat center center fixed;
+				background-size: cover;
+				color: #fff;
+				/* transition: all .5s; */
+				opacity: 0; /* animated */
+			}
+		</style>
+
+	</head>
+	<body>
+		<section class="blurred">
+			<h1 id="header">Test our Brand New KTM Duke bike!!!</h1>
+			<p class="big">Book your testdrive now</p>
+			<div class="form">
+				<input type="text">
+				<input type="email">
+				<input type="submit" class="button red">
+			</div>
+		</section>
+	</body>
+	<script>
+		var Ypos,
+				frameHeight;
+		function windowHeight() {	return window.innerHeight || document.documentElement.clientHeight }
+		(window.onresize = function() {
+			frameHeight = windowHeight();
+			document.body.style.height = frameHeight * (2 + 1) + 'px';
+		})()
+		
+
+		var scroll = function(event) {
+			event.preventDefault();
+			Ypos = window.pageYOffset || document.documentElement.scrollTop;
+			event.wheelDelta < 0 ? nextFrame() : prevFrame();
+		} 
+
+		var nextFrame = function() {
+			scrollTo = (Ypos + frameHeight) - (Ypos % frameHeight);
+			$('html,body').animate({
+		      scrollTop: scrollTo
+			  }, 1000, 'swing');
+		}
+		var prevFrame = function() {
+
+		} 
+
+		window.onmousewheel = scroll;
+
+		window.onload = function() { //Homepage top slider parallax by Anmot
+			blurred = document.getElementsByClassName('blurred')[0];
+			header = document.getElementById('header');
+			window.onscroll = function() {
+				Ypos = window.pageYOffset || document.documentElement.scrollTop;
+				blurred.style.opacity = (Ypos / frameHeight) > 1 ? 1 : (Ypos / frameHeight);
+				slide1();
+				slide2();
+				function slide1() {
+					blurred.style.opacity = (Ypos / frameHeight) > 1 ? 1 : (Ypos / frameHeight);
+				}
+				function slide2() {
+					header.style.left = (-100 + (((Ypos - frameHeight)/(frameHeight)) *100)) + '%';
+				}
+
+			}
+		}
+	</script>
+</html>
