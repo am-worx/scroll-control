@@ -15,34 +15,95 @@
 			}
 			body {
 				font-family: Arial, sans-serif;
-				background: url(img/motorcycle.jpg) no-repeat center center fixed;
+				background: #000 url(img/motorcycle.jpg) no-repeat center center fixed;
 				background-size: cover;
 				height: 5000px;
 			}
 			h1 {
-				font-size: 50px;
+				font-size: 78px;
 				position: relative;
-				left: -100%;
+				/* left: -100%; */
 			}
 			.big {
+				display: block;
 				position: relative;
-				left: 100%;
+				font-size: 50px;
+				font-style: italic;
+				/*left: 100%;*/
 			}
 			.blurred {
 				display: block;
 				position: fixed;
 				box-sizing: border-box;
-				top: 30%;
+				top: 50%;
 				left: 50%;
 				width: 80%;
-				margin-left: -40%;
+				margin: -270px 0 0 -40%;
 				padding: 80px;
-				padding: 20px;
 				background: url(img/motorcycle-blurred.jpg) no-repeat center center fixed;
 				background-size: cover;
 				color: #fff;
-				/* transition: all .5s; */
-				opacity: 0; /* animated */
+				/* opacity: 0; */ /* animated */
+			}
+			.form	{
+				overflow: hidden;
+			}
+			.form input {
+				display: block;
+				box-sizing: border-box;
+				float: left;
+				width: 32%;
+				height: 90px;
+				margin-right: 2%;
+				padding: 0 15px;
+				border: 1px solid transparent;
+				border-radius: 1px;
+				background: rgba(255, 255, 255, .7);
+				transition: border-color .2s;
+				color: #000;
+				font-size: 28px;
+				line-height: 28px;
+			}
+			.form input[type="text"]:focus, .form input[type="email"]:focus {
+				border-color: #fff;
+				animation: input-flash .5s;
+			}
+			@keyframes input-flash {
+			  0%   {background: rgba(255, 255, 255, .7);}
+			  20%  {background: rgba(255, 255, 255, .85);}
+			  100% {background: rgba(255, 255, 255, .7);}
+			}
+			.form input::-webkit-input-placeholder {color: #fff; font-style: italic; font-size: 28px; line-height: 28px; display: block;}
+			.form input:-moz-placeholder {color: #fff; font-style: italic; font-size: 28px; line-height: 28px; display: block;}
+			.form input::-moz-placeholder {color: #fff; font-style: italic; font-size: 28px; line-height: 28px; display: block;}
+			.form input:-ms-input-placeholder {color: #fff; font-style: italic; font-size: 28px; line-height: 28px; display: block;}
+			.form input.button, .form .button {
+				width: 31%;
+				margin-right: 0;
+				background: #ff5555;
+				border-bottom: 10px solid #9e1515;
+				text-shadow: -1px 1px 1px #9e1515;
+				font-size: 36px;
+				color: #fff;
+				transition: all .3s;
+				cursor: pointer;
+			}
+			.form input:focus {
+				box-shadow: 0 0 30px 0 rgba(0, 0, 0, .3) inset;
+				color: #000;
+			}
+			.free {
+				display: block;
+				clear: both;
+				float: right;
+				margin: 20px 16% 0 0;
+				font: italic 38px/38px "Comic Sans MS", cursive, sans-serif;
+			}
+			.free .arrow {
+				display: inline-block;
+				background: url(img/arrow.png) no-repeat right top;
+				width: 308px;
+				height: 170px;
 			}
 		</style>
 
@@ -52,9 +113,10 @@
 			<h1 id="header">Test our Brand New KTM Duke bike!!!</h1>
 			<p class="big">Book your testdrive now</p>
 			<div class="form">
-				<input type="text">
-				<input type="email">
-				<input type="submit" class="button red">
+				<input type="text" placeholder="Name">
+				<input type="email" placeholder="Email">
+				<input type="submit" class="button red" value="Book now!">
+				<span class="free">It's free <span class="arrow"></span></span>
 			</div>
 		</section>
 	</body>
