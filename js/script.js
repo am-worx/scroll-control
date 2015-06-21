@@ -32,6 +32,7 @@ function frame5() {
 }
 
 window.onload = function() {
+	window.scroll(0, 0);
 	blurred = document.getElementsByClassName('blurred')[0];
 	header = document.getElementById('header');
 	form = document.getElementsByClassName('form')[0];
