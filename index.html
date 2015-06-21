@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Jooble test</title>
+		<title>Scroll</title>
 		<meta charset="utf8">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<link rel="stylesheet" href="css/reset.css">
@@ -16,7 +16,7 @@
 					<div class="form">
 						<input type="text" placeholder="Name">
 						<input type="email" placeholder="Email">
-						<input type="submit" class="button red" value="Book now!">
+						<input type="submit" class="button" value="Book now!" onclick="this.classList.add('loading')">
 						<span class="free">It's free 
 							<span class="reserved">
 								<span class="arrow"></span>
