@@ -15,15 +15,13 @@ h1 {
 	font-size: 80px;
 	position: relative;
 	margin-bottom: 50px;
-	/* left: -100%; */
+	opacity: 0; /* animated */
 }
-.big {
+.small {
 	display: block;
-	position: relative;
-	margin-bottom: 50px;
+	margin-top: 50px;
 	font-size: 50px;
 	font-style: italic;
-	/*left: 100%;*/
 }
 .wrapper {
 	display: table;
@@ -42,16 +40,16 @@ h1 {
 	display: inline-block;
 	text-align: left;
 	box-sizing: border-box;
-	/* width: 80%; */
 	margin: 0 auto;
 	padding: 80px;
 	background: url(../img/motorcycle-blurred.jpg) no-repeat center center fixed;
 	background-size: cover;
 	color: #fff;
-	/* opacity: 0; */ /* animated */
+	opacity: 0; /* animated */
 }
 .form	{
 	overflow: hidden;
+	opacity: 0; /* animated */
 }
 .form input {
 	display: block;
@@ -60,7 +58,7 @@ h1 {
 	width: 33%;
 	height: 90px;
 	margin-right: 2%;
-	padding: 0 20px;
+	padding: 0 0 0 20px;
 	border: 1px solid transparent;
 	border-radius: 1px;
 	background: rgba(255, 255, 255, .7);
@@ -84,9 +82,10 @@ h1 {
 .form input:-ms-input-placeholder {color: #fff; font-style: italic; font-size: 28px; line-height: 28px; display: block;}
 .form input.button, .form .button {
 	width: 30%;
+	padding: 0 20px;
 	margin-right: 0;
-	background: #ff5555;
 	border-bottom: 10px solid #9e1515;
+	background: #ff5555;
 	text-shadow: -1px 1px 1px #9e1515;
 	font-size: 36px;
 	color: #fff;
@@ -99,14 +98,21 @@ h1 {
 }
 .free {
 	display: block;
+	position: relative;
 	clear: both;
 	float: right;
-	margin: 20px 16% 0 0;
+	margin: 20px 15% 0 0;
 	font: italic 38px/38px "Comic Sans MS", cursive, sans-serif;
+	left: -100%;
+}
+.free .reserved {
+	display: inline-block;
+	width: 308px;
+	height: 170px;
 }
 .free .arrow {
 	display: inline-block;
-	background: url(../img/arrow.png) no-repeat right top;
-	width: 308px;
+	background: url(../img/arrow.png) no-repeat left top;
 	height: 170px;
+	width: 0; /* animated */
 }

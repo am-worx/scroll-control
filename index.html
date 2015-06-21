@@ -6,72 +6,25 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/style.css">
-		<style type="text/css">
-			
-		</style>
-
+		<script src="js/script.js"></script>
 	</head>
 	<body>
 		<div class="wrapper">
 			<div class="cell">
 				<div class="blurred">
-					<h1 id="header">Test our Brand New KTM Duke bike!!!</h1>
-					<p class="big">Book your testdrive now</p>
+					<h1 id="header">Test our Brand New KTM Duke bike!!!<span class="small">Book your testdrive now!</span></h1>
 					<div class="form">
 						<input type="text" placeholder="Name">
 						<input type="email" placeholder="Email">
 						<input type="submit" class="button red" value="Book now!">
-						<span class="free">It's free <span class="arrow"></span></span>
+						<span class="free">It's free 
+							<span class="reserved">
+								<span class="arrow"></span>
+							</span>
+						</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		
 	</body>
-	<script>
-		var Ypos,
-				frameHeight;
-		function windowHeight() {	return window.innerHeight || document.documentElement.clientHeight }
-		(window.onresize = function() {
-			frameHeight = windowHeight();
-			document.body.style.height = frameHeight * (2 + 1) + 'px';
-		})()
-		
-
-		var scroll = function(event) {
-			event.preventDefault();
-			Ypos = window.pageYOffset || document.documentElement.scrollTop;
-			event.wheelDelta < 0 ? nextFrame() : prevFrame();
-		} 
-
-		var nextFrame = function() {
-			scrollTo = (Ypos + frameHeight) - (Ypos % frameHeight);
-			$('html,body').animate({
-		      scrollTop: scrollTo
-			  }, 1000, 'swing');
-		}
-		var prevFrame = function() {
-
-		} 
-
-		window.onmousewheel = scroll;
-
-		window.onload = function() { //Homepage top slider parallax by Anmot
-			blurred = document.getElementsByClassName('blurred')[0];
-			header = document.getElementById('header');
-			window.onscroll = function() {
-				Ypos = window.pageYOffset || document.documentElement.scrollTop;
-				blurred.style.opacity = (Ypos / frameHeight) > 1 ? 1 : (Ypos / frameHeight);
-				slide1();
-				slide2();
-				function slide1() {
-					blurred.style.opacity = (Ypos / frameHeight) > 1 ? 1 : (Ypos / frameHeight);
-				}
-				function slide2() {
-					header.style.left = (-100 + (((Ypos - frameHeight)/(frameHeight)) *100)) + '%';
-				}
-
-			}
-		}
-	</script>
 </html>
